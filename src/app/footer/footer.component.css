@@ -1,0 +1,12 @@
+.footer{
+    background-color: rgb(187, 0, 0);
+    padding: 10px;
+    border-bottom: 5px solid rgb(109, 1, 1);
+    
+}
+.container p{
+    color: white;
+    font-size: small;    
+    margin-top: 20px;
+    margin-bottom: auto;    
+}

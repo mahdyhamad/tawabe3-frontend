@@ -1,0 +1,55 @@
+.section_title{
+    padding: 1em;
+    margin-bottom: 1em;
+    background-image: url("/assets/media/svgs/Pattern-Randomized.svg");
+    background-repeat: no-repeat;
+    background-size: 40em;
+    background-position: right;
+}
+
+.section_title p{
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.image_btn_container{
+    text-align: center;
+}
+
+
+.image_btn_container button{    
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 3em;
+    width: 100%;
+}
+
+
+.file_text{
+    padding: 1em;
+    background-color: #24456e;
+    color: white;
+}
+
+.order_button{
+    background-color: #24456e;
+
+}
+
+.order_button:disabled{    
+    
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.horiz_center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkoutBtn:disabled{
+    cursor: not-allowed;
+}

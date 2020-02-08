@@ -1,0 +1,109 @@
+.heading{
+    background-image: url("/assets/media/svgs/parrot-captain.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    background-clip: unset;
+    background-position-y: bottom;
+    background-color: #f1f3f4;
+    padding: 5px;
+
+}
+
+.section1{
+    background-image: url("/assets/media/svgs/Pattern-Randomized.svg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-x: left;
+    background-attachment: unset;
+    background-clip: inherit;
+    background-position: initial;
+    padding: 20px;;
+}
+
+.container .row{
+    background-color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+
+.title{
+    font-size: 3em;
+    text-align: left;
+    padding: 0.3em;
+}
+
+
+.text{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.text ul{
+    font-size: 1em;
+    padding: 0.3em;    
+    text-align: center;
+    list-style-position: inside;
+    list-style: none;
+}
+
+.wrapper{
+    text-align: center;
+}
+
+.wrapper button{
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background-color: #24456e;
+    color: white;
+}
+
+.wrapper button:hover{
+    background-color: rgb(187, 0, 0);
+}
+
+.text{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text ul{
+    text-align: left;
+}
+.text li{
+    margin-top: 3px;
+}
+
+.text li i {
+    font-size: larger;
+    margin-right: 5px;
+
+}
+
+
+.section2{
+    background-image: url("/assets/media/svgs/Pattern-Randomized.svg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: right;
+    padding: 20px;;
+}
+
+.sub_title{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.wrapper i{
+    font-size: 3em;
+}
+
+.text .explain{
+    color: #24292eb4;
+    font-weight: bold;
+    text-align: center;
+}

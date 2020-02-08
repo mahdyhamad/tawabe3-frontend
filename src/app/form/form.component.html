@@ -1,0 +1,151 @@
+<app-header></app-header>
+<br>
+<br>
+<div class="container">
+    <form action="POST" [formGroup]="orderForm" (Submit)="newOrder()">
+        <div class="section_title rounded-lg shadow-sm border_red">
+            <p><i class="fas fa-address-book"></i> Contact details</p>
+        </div>
+        <div class="row container">
+            <div class="form-group col-sm">
+                <label for="full_name">Name</label>
+                <input type="text" formControlName="full_name" class="form-control">
+            </div>
+            
+            <div class="form-group col-sm">
+                <label for="mobile_number">Mobile number</label>
+                <input type="text" formControlName="mobile_number" class="form-control">
+            </div>
+        </div>
+        <div class="section_title rounded-lg shadow-sm border_red">
+            <p><i class="fas fa-sticky-note"></i> Sticker details</p>
+        </div>
+        <div class="row p-3">
+            <div class="col-sm-6">
+                <div class="form-group row-sm">
+                    <input type="text" formControlName="name_field" class="form-control" placeholder="Mohammad Ali" required>
+                </div>
+                
+                <div class="form-group row-sm">
+                    <input type="text" formControlName="class_field" class="form-control" placeholder="4th grade (c)">
+                </div>
+
+                <div class="form-group row-sm">
+                    <input type="text" formControlName="school_field" class="form-control" placeholder="AlJazeera schools">
+                </div>
+                <div class="row">
+                <div class="form-group col-sm horiz_center">
+                    <label for="quantity">Quantity</label>
+                    <select class="form-control" formControlName="quantity">
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                    </select>
+                </div>
+                <div class="col-sm image_btn_container">
+                    <p style="text-align: left;">Choose image</p>
+                    <button 
+                    class="btn shadow-sm" 
+                    type="button"
+                    (click)="fileInput.click()"
+                    ><i class="fas fa-images"></i></button>
+                    
+                    <input 
+                    type="file"
+                    style="display: none;"
+                    (change)="onImageChanged($event)"
+                    #fileInput>
+                    <p class="file_text" [innerHtml]="imageUploaded"></p>
+                </div>
+            </div>
+            </div>
+            <div class="col-sm-6">
+                <app-sticker formControlName="sticker_id"></app-sticker>
+                <br>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea class="form-control" formControlName="notes"  style="max-height: 100px;"></textarea>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="section_title rounded-lg shadow-sm border_red">
+            <p><i class="fas fa-truck"></i> Delivery details</p>
+        </div>
+        <div class="row container">
+            <div class="col-sm form-group">
+                <label for="building_number">Building number</label>
+                <input type="text" class="form-control" formControlName="building_number">
+            </div>
+            
+            <div class="col-sm form-group">
+                <label for="street_name">Street name</label>
+                <input type="text" class="form-control" formControlName="street_name">
+            </div>
+
+            <div class="col-sm form-group">
+                <label for="area">area</label>
+                <input type="text" class="form-control" formControlName="area">
+            </div>
+
+            <div class="col-sm form-group">
+                <label for="city">City</label>
+                <select class="form-control" formControlName="city">
+                    <option value=null disabled selected>Select your option</option>
+                    <option value="AMMAN" lang="ar" dir="rtl">عمان</option>
+                    <option value="IRBID" lang="ar" dir="rtl">إربد</option>
+                    <option value="ZARQA" lang="ar" dir="rtl">الزرقاء</option>
+                    <option value="MAAN" lang="ar" dir="rtl">معان</option>
+                    <option value="MAFRAQ" lang="ar" dir="rtl">المفرق</option>
+                    <option value="TAFILAH" lang="ar" dir="rtl">الطفيلة</option>
+                    <option value="BALQA" lang="ar" dir="rtl">الكرك</option>
+                    <option value="JARASH" lang="ar" dir="rtl">جرش</option>
+                    <option value="AJLUN" lang="ar" dir="rtl">عجلون</option>
+                    <option value="MADABA" lang="ar" dir="rtl">مادبا</option>
+                    <option value="AQABA" lang="ar" dir="rtl">العقبة</option>
+
+                    
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-1 mb-3">
+            <button 
+            class="btn btn-primary shadow-sm order_button"
+            (click)="newOrder()"
+            [disabled]="!this.orderForm.valid">
+                order
+            </button>
+            </div>
+            <div class="col-sm">
+                <button class="btn btn-primary checkoutBtn" type="button" [disabled]="!this.orderForm.valid">
+                    <i class="fas fa-credit-card mr-2"></i>   continue to checkout <i class="fas fa-chevron-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+        <div *ngIf="!this.orderForm.valid">
+            <small class="danger"> fill the form correctly </small>
+        </div>
+    </form>
+    <br>
+
+    <!-- [ 'properity name in the child component' ] = " 'properity name in the parent component' "-->
+    <app-invoice [quantity]="quantity"
+                 [full_name]="full_name"
+                 [mobile_number]="mobile_number"
+                 [address1]="building_number"
+                 [address2]="street_name"
+                 [address3]="area"
+                 [city]="city"
+                 [ppp]="ppp"
+                 [order_cost]="OrderCost()"
+                 [delivery_cost]="DeliveryCost()"
+                 [total_cost]="TotalCost()"
+                 [order_on]="order_on"
+                 [delivery_on]="delivery_on"
+                 [orderForm] = "orderForm"
+                 ></app-invoice>
+</div>
+<app-footer></app-footer>

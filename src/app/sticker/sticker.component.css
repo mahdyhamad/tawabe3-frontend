@@ -1,0 +1,9 @@
+.active{
+    border-radius: 3px;
+    border-color: black;
+}
+
+button:hover{
+    border-radius: 1px;
+    border-color: blue;
+}
