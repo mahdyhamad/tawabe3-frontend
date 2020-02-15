@@ -111,16 +111,19 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-sm-1 mb-3">
+            <div class="col-sm-2 mb-3">
             <button 
             class="btn btn-primary shadow-sm order_button"
             (click)="newOrder()"
             [disabled]="!this.orderForm.valid">
-                order
+                confirm order
             </button>
             </div>
             <div class="col-sm">
-                <button class="btn btn-primary checkoutBtn" type="button" [disabled]="!this.orderForm.valid">
+                <button 
+                class="btn btn-primary checkoutBtn" 
+                type="button" 
+                [disabled]="!this.orderForm.valid">
                     <i class="fas fa-credit-card mr-2"></i>   continue to checkout <i class="fas fa-chevron-right ml-2"></i>
                 </button>
             </div>

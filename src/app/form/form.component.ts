@@ -8,7 +8,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css', './form.component.scss']
 })
 export class FormComponent implements OnInit {
   
@@ -26,14 +26,10 @@ export class FormComponent implements OnInit {
   amman_delivery_fee: number = 1;
   nonamman_delivery_fee: number = 2;
 
-  constructor(private http: HttpClient, private fb: FormBuilder) { }
-
-  
-
-  ngOnInit() {
+  constructor(private http: HttpClient, private fb: FormBuilder) { 
     this.orderForm = this.fb.group({
       full_name: ['', Validators.required],
-      mobile_number: ['', Validators.required],
+      mobile_number: ['', [Validators.required, Validators.maxLength(10)]],
       building_number: ['', Validators.required],
       street_name: ['', Validators.required],
       area: ['', Validators.required],
@@ -45,15 +41,21 @@ export class FormComponent implements OnInit {
       quantity: [1, Validators.required],
       notes:['']
     })
+  }
+
+  
+
+  ngOnInit() {
+    
   
   }
 
   get full_name(){
-    return this.orderForm.get('full_name').value;
+    return this.orderForm.get('full_name').value as FormControl;
   }
 
   get mobile_number(){
-    return this.orderForm.get('mobile_number').value;
+    return this.orderForm.get('mobile_number').value as FormControl;
   }
    
   get building_number(){

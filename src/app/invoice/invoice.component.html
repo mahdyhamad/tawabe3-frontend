@@ -1,8 +1,9 @@
 <div class="invoice zigzag">
+  <br>
     <div class="">
         <div class="container">
             <div class="card">
-          <div class="card-header">
+          <div class="card-header border_red bg-white shadow-sm">
           Invoice
           <strong>{{order_on | date}}</strong> 
           <strong>{{delivery_on | date}}</strong> 
@@ -24,7 +25,7 @@
           <div class="col-sm-6">
             <h6 class="mb-3">Delivery details:</h6>
             <div>
-            <strong>Dear <em style="color: rgb(255, 174, 0);">{{full_name || 'customer'}}</em>, your order will be ready in 3 days. Please make sure that this number {{mobile_number}}
+            <strong>Dear <em style="color: #24456e;">{{full_name || 'customer'}}</em>, your order will be ready in 3 days. Please make sure that this number {{mobile_number}}
                 is valid and available in 3 days.
             </strong>
             </div>
