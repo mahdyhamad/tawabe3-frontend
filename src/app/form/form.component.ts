@@ -51,11 +51,11 @@ export class FormComponent implements OnInit {
   }
 
   get full_name(){
-    return this.orderForm.get('full_name').value as FormControl;
+    return this.orderForm.get('full_name').value;
   }
 
   get mobile_number(){
-    return this.orderForm.get('mobile_number').value as FormControl;
+    return this.orderForm.get('mobile_number').value;
   }
    
   get building_number(){
