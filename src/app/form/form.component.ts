@@ -157,7 +157,7 @@ export class FormComponent implements OnInit {
     if (this.stickerImage!=null){
     uploadData.append('stickerImage', this.stickerImage, this.stickerImage.name);}
   
-    this.http.post('http://localhost:8000/order/', uploadData).subscribe(
+    this.http.post('https://shrouded-gorge-71741.herokuapp.com/order/', uploadData).subscribe(
       data => console.log(data),
       error => console.error(error),
       
