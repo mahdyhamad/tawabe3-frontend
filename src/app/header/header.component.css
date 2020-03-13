@@ -8,6 +8,7 @@
 .sticky {
     position: fixed;
     top: 0;
+    bottom: 10px;
     width: 100%;
   }
 
@@ -33,9 +34,7 @@
 }
 
 @media (max-width: 485px){
-  .navbar{
-    height: 6em;
-  }
+ 
 }
 
 

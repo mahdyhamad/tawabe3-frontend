@@ -1,10 +1,6 @@
 .section_title{
     padding: 1em;
     margin-bottom: 1em;
-    background-image: url("/assets/media/svgs/Pattern-Randomized.svg");
-    background-repeat: no-repeat;
-    background-size: 40em;
-    background-position: right;
 }
 
 .section_title p{

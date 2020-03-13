@@ -1,8 +1,10 @@
 <div class="scrollable">
 <div *ngFor="let sticker of stickers" class="btn-group btn-group-toggle">
     <div class="card shadow-lg">
-        <button type="radio" (click)="setStickerId(sticker.id)" 
-        [class.active]="stickerId === sticker.id" class="btn">
+        <button type="radio" 
+        (click)="setStickerId(sticker.id)" 
+        [class.active]="stickerId === sticker.id" 
+        class="btn">
         <img src="{{sticker.src}}" alt="" class="card-img-top"></button>
     </div>
 </div>

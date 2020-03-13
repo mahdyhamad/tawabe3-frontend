@@ -1,9 +1,10 @@
-<div class="invoice zigzag">
+<div class="invoice zigzag mb-2">
   <br>
     <div class="">
         <div class="container">
             <div class="card">
           <div class="card-header border_red bg-white shadow-sm">
+            <i class="fas fa-receipt fa-lg mr-3"></i>
           Invoice
           <strong>{{order_on | date}}</strong> 
           <strong>{{delivery_on | date}}</strong> 
@@ -16,16 +17,16 @@
           <div class="col-sm-6">
           <h6 class="mb-3">From:</h6>
           <div>
-          <strong>{{full_name || 'pending'}}</strong>
+          <strong>{{full_name}}</strong>
           </div>
-          <div>{{address1 || ''}} {{ address2 || ''}}</div>
-          <div>{{ address3 || ''}}, {{ city || ''}}</div>
+          <div>{{address1}} {{ address2 }}</div>
+          <div>{{ address3 }}, {{ city }}</div>
           <div>Phone: {{mobile_number}}</div>
           </div>
           <div class="col-sm-6">
             <h6 class="mb-3">Delivery details:</h6>
             <div>
-            <strong>Dear <em style="color: #24456e;">{{full_name || 'customer'}}</em>, your order will be ready in 3 days. Please make sure that this number {{mobile_number}}
+            <strong>Dear <em style="color: #24456e;">{{full_name}}</em>, your order will be ready in 3 days. Please make sure that this number {{mobile_number}}
                 is valid and available in 3 days.
             </strong>
             </div>
@@ -38,7 +39,6 @@
           <tr>
           <th class="center">#</th>
           <th>Item</th>
-          <th>Description</th>
           
           <th class="right">Unit Cost</th>
             <th class="center">Qty</th>
@@ -48,8 +48,7 @@
           <tbody>
           <tr>
           <td class="center">{{items}}</td>
-          <td class="left">Platinum Support</td>
-          <td class="left">1 year subcription 24/7</td>
+          <td class="left">sticker</td>
           
           <td class="right">{{ppp | currency:'JOD':'symbol'}}</td>
             <td class="center">{{quantity}}</td>

@@ -1,50 +1,139 @@
-<app-header></app-header>
-<br>
-<br>
 <div class="container">
-    <form action="POST" [formGroup]="orderForm" (Submit)="newOrder()">
+
+    <form [formGroup]="orderForm">
+
+        <!-- ********** Contact Details Section **********-->
         <div class="section_title rounded-lg shadow-sm border_red">
-            <p><i class="fas fa-address-book"></i> Contact details</p>
+            <p>
+                <i class="fas fa-address-book"></i> Contact details
+            </p>
         </div>
+
         <div class="row container">
+            <!-- Full name -->
             <div class="form-group col-sm">
-                <label for="full_name">Name</label>
-                <input type="text" formControlName="full_name" class="form-control">
+                <label for="full_name" class="required">Full name</label>
+                <div class="row ml-0">
+                    <input 
+                    (change) = "inputChange($event)"
+                    type="text"
+                    placeholder="Mohammad Ali"
+                    formControlName="full_name" 
+                    class="form-control col-10">
+                    <p class="col-1 successMsg" *ngIf="name.valid">
+                        <i class="fas fa-check"></i>
+                    </p>
+                </div>
+                <!-- validation error -->
+                <p
+                *ngIf="!name.valid && name.touched" 
+                class="validErr">
+                    <i class="fas fa-times"></i> Doesn't look like a valid name
+                </p>
             </div>
-            
+
+            <!-- Mobile Number -->
             <div class="form-group col-sm">
-                <label for="mobile_number">Mobile number</label>
-                <input type="text" formControlName="mobile_number" class="form-control">
+                <label for="mobile_number" class="required">Mobile number</label>
+                <div class="row ml-0">
+                    <input type="text" 
+                    placeholder="07××××××××"
+                    formControlName="mobile_number" 
+                    class="form-control col-10">
+                    <p class="col-1 successMsg" *ngIf="number.valid">
+                        <i class="fas fa-check"></i>
+                    </p>
+                </div>
+                <!-- validation error -->
+                <p
+                *ngIf="!number.valid && number.touched" 
+                class="validErr">
+                    <i class="fas fa-times"></i> Doesn't look like a valid mobile number
+                </p>
             </div>
         </div>
+
+        <!-- ********** Order Details Section **********-->
         <div class="section_title rounded-lg shadow-sm border_red">
             <p><i class="fas fa-sticky-note"></i> Sticker details</p>
         </div>
+
         <div class="row p-3">
             <div class="col-sm-6">
                 <div class="form-group row-sm">
-                    <input type="text" formControlName="name_field" class="form-control" placeholder="Mohammad Ali" required>
+                    <div class="row ml-0">
+                    <input
+                    (change) = "inputChange($event)"
+                    type="text" 
+                    formControlName="name_field"
+                    class="form-control col-10 required" 
+                    placeholder="Mohammad Ali">
+
+                    <p class="col-1 successMsg" *ngIf="field1.valid">
+                        <i class="fas fa-check"></i>
+                    </p>
+                </div>
+                    <p
+                    *ngIf="!field1.valid && field1.touched" 
+                    class="validErr">
+                    <i class="fas fa-times"></i> Doesn't look like valid</p>
                 </div>
                 
                 <div class="form-group row-sm">
-                    <input type="text" formControlName="class_field" class="form-control" placeholder="4th grade (c)">
+                    <div class="row ml-0">
+                        <input 
+                        (change) = "inputChange($event)"
+                        type="text" 
+                        formControlName="class_field" 
+                        class="form-control col-10" 
+                        placeholder="4th grade (c)">
+                        <p class="col-1 successMsg" *ngIf="field2.valid && field2.touched"><i class="fas fa-check"></i></p>
+                    </div>
+                    <p
+                    *ngIf="!field2.valid" 
+                    class="validErr">
+                    <i class="fas fa-times"></i> Doesn't look like valid</p>
                 </div>
 
                 <div class="form-group row-sm">
-                    <input type="text" formControlName="school_field" class="form-control" placeholder="AlJazeera schools">
+                    <div class="row ml-0">
+                        <input 
+                        (change) = "inputChange($event)"
+                        type="text" 
+                        formControlName="school_field" 
+                        class="form-control col-10" 
+                        placeholder="AlJazeera schools">
+                        <p class="col-1 successMsg" *ngIf="field3.valid && field3.touched"><i class="fas fa-check"></i></p>
+                    </div>
+                    <p
+                    *ngIf="!field3.valid" 
+                    class="validErr">
+                    <i class="fas fa-times"></i> Doesn't look like valid</p>
                 </div>
-                <div class="row">
-                <div class="form-group col-sm horiz_center">
-                    <label for="quantity">Quantity</label>
-                    <select class="form-control" formControlName="quantity">
-                        <option value=1>1</option>
-                        <option value=2>2</option>
-                        <option value=3>3</option>
-                        <option value=4>4</option>
-                    </select>
+                <div class="row ml-0">
+                <div class="form-group col-sm p-0">
+                    <label for="quantity" class="required" style="text-align: left;">Quantity</label>
+                    <div class="row m-0">
+                        <select
+                        class="form-control col-10" 
+                        formControlName="quantity">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                        </select><p class="col-1 successMsg" *ngIf="quantityV.valid && quantityV.touched"><i class="fas fa-check"></i></p>
+                    </div>
+                    <p
+                    *ngIf="!quantityV.valid" 
+                    class="validErr">
+                    <i class="fas fa-times"></i> Doesn't look like valid</p>    
                 </div>
+
+                
                 <div class="col-sm image_btn_container">
-                    <p style="text-align: left;">Choose image</p>
+                    <div class="row">
+                        <label>Upload image  <small>(optional)</small></label>
+                    </div>
                     <button 
                     class="btn shadow-sm" 
                     type="button"
@@ -55,69 +144,142 @@
                     type="file"
                     style="display: none;"
                     (change)="onImageChanged($event)"
+                    accept='image/x-png,image/gif,image/jpeg'
                     #fileInput>
-                    <p class="file_text" [innerHtml]="imageUploaded"></p>
+                    <p class="file_text" [innerHtml]="imageUploaded" multiple></p>
                 </div>
+                
             </div>
             </div>
             <div class="col-sm-6">
+                <div class="row ml-0">
+                    <p class="required col-9 p-0">Sticker theme</p> 
+                    <p class="col-1 successMsg" *ngIf="onStickerIdChange()"><i class="fas fa-check"></i></p>
+                </div>
                 <app-sticker formControlName="sticker_id"></app-sticker>
+                
+                <p
+                    *ngIf="!onStickerIdChange()"
+                    (change)="onStickerIdChange($event)" 
+                    class="validErr">
+                    <i class="fas fa-exclamation-circle"></i> This field is required</p>    
                 <br>
                 <div class="form-group">
-                    <label for="notes">Notes</label>
+                    <label for="notes">Notes  <small>(optional)</small></label>
                     <textarea class="form-control" formControlName="notes"  style="max-height: 100px;"></textarea>
                 </div>
             </div>
         </div>
         <br>
+
+        <!-- ********** Contact Details Section **********-->
         <div class="section_title rounded-lg shadow-sm border_red">
             <p><i class="fas fa-truck"></i> Delivery details</p>
         </div>
         <div class="row container">
             <div class="col-sm form-group">
-                <label for="building_number">Building number</label>
-                <input type="text" class="form-control" formControlName="building_number">
+                <label for="building_number" class="required">Building number</label>
+                <div class="row ml-0">
+                    <input 
+                    (change) = "inputChange($event)"
+                    type="text" 
+                    placeholder="7d"
+                    class="form-control col-10" 
+                    formControlName="building_number">
+                    <p 
+                    class="col-1 successMsg" 
+                    *ngIf="address1.valid">
+                    <i class="fas fa-check"></i></p>
+                </div>
+                <p
+                *ngIf="!address1.valid && address1.touched" 
+                class="validErr">
+                <i class="fas fa-times"></i> Doesn't look like valid building no.</p>    
             </div>
             
             <div class="col-sm form-group">
-                <label for="street_name">Street name</label>
-                <input type="text" class="form-control" formControlName="street_name">
+                <label for="street_name" class="required">Street name</label>
+                <div class="row ml-0">
+                    <input 
+                    (change) = "inputChange($event)"
+                    type="text" 
+                    placeholder="Al-Arab St."
+                    class="form-control col-10" 
+                    formControlName="street_name">
+                    <p 
+                    class="col-1 successMsg" 
+                    *ngIf="address2.valid">
+                    <i class="fas fa-check"></i></p>
+                </div>
+                <p
+                *ngIf="!address2.valid && address2.touched" 
+                class="validErr">
+                <i class="fas fa-times"></i> Doesn't look like valid street name</p>    
             </div>
 
             <div class="col-sm form-group">
-                <label for="area">area</label>
-                <input type="text" class="form-control" formControlName="area">
+                <label for="area" class="required">area</label>
+                <div class="row ml-0">
+                    <input 
+                    (change) = "inputChange($event)"
+                    type="text"
+                    placeholder="Khalda" 
+                    class="form-control col-10" 
+                    formControlName="area">
+                    <p class="col-1 successMsg" *ngIf="address3.valid"><i class="fas fa-check"></i></p>
+                </div>
+                <p
+                *ngIf="!address3.valid && address3.touched" 
+                class="validErr">
+                <i class="fas fa-times"></i> Doesn't look like valid area</p>  
             </div>
 
             <div class="col-sm form-group">
-                <label for="city">City</label>
-                <select class="form-control" formControlName="city">
-                    <option value=null disabled selected>Select your option</option>
-                    <option value="AMMAN" lang="ar" dir="rtl">عمان</option>
-                    <option value="IRBID" lang="ar" dir="rtl">إربد</option>
-                    <option value="ZARQA" lang="ar" dir="rtl">الزرقاء</option>
-                    <option value="MAAN" lang="ar" dir="rtl">معان</option>
-                    <option value="MAFRAQ" lang="ar" dir="rtl">المفرق</option>
-                    <option value="TAFILAH" lang="ar" dir="rtl">الطفيلة</option>
-                    <option value="BALQA" lang="ar" dir="rtl">الكرك</option>
-                    <option value="JARASH" lang="ar" dir="rtl">جرش</option>
-                    <option value="AJLUN" lang="ar" dir="rtl">عجلون</option>
-                    <option value="MADABA" lang="ar" dir="rtl">مادبا</option>
-                    <option value="AQABA" lang="ar" dir="rtl">العقبة</option>
-
-                    
-                </select>
+                <label for="city" class="required">City</label>
+                <div class="row ml-0">
+                    <select class="form-control col-10" formControlName = "city">
+                        <option value="" disabled selected>Select your option</option>
+                        <option value="Amman">Amman</option>
+                        <option value="Irbid">Irbid</option>
+                        <option value="Zarqa">Zarqa</option>
+                        <option value="AlBalqa">AlBalqa</option>
+                        <option value="AlKarak">AlKarak</option>
+                        <option value="Mafraq">Mafraq</option>
+                        <option value="Jarash">Jarash</option>
+                        <option value="Madaba">Madaba</option>
+                        <option value="Ajlun">Ajlun</option>
+                        <option value="Maan">Maan</option>
+                        <option value="AlTafilah">AlTafilah</option>
+                        <option value="Aqaba">Aqaba</option>
+                    </select>
+                    <p class="col-1 successMsg" *ngIf="address4.valid"><i class="fas fa-check"></i></p>
+                </div>
             </div>
         </div>
         <br>
+        <!-- ********** Invoice Details Section **********-->
+          <!-- [ 'properity name in the child component' ] = " 'properity name in the parent component' "-->
+    <app-invoice 
+        [quantity]="quantity"
+        [full_name]="full_name"
+        [mobile_number]="mobile_number"
+        [address1]="building_number"
+        [address2]="street_name"
+        [address3]="area"
+        [city]="city"
+        [ppp]="ppp"
+        [order_cost]="OrderCost()"
+        [delivery_cost]="DeliveryCost()"
+        [total_cost]="TotalCost()"
+        [order_on]="order_on"
+        [delivery_on]="delivery_on"
+        [orderForm] = "orderForm"></app-invoice>
         <div class="row">
             <div class="col-sm-2 mb-3">
             <button 
             class="btn btn-primary shadow-sm order_button"
             (click)="newOrder()"
-            [disabled]="!this.orderForm.valid">
-                confirm order
-            </button>
+            [disabled]="!this.orderForm.valid">confirm order</button>
             </div>
             <div class="col-sm">
                 <button 
@@ -128,27 +290,14 @@
                 </button>
             </div>
         </div>
+        <br>
         <div *ngIf="!this.orderForm.valid">
-            <small class="danger"> fill the form correctly </small>
+            <div class="alert alert-danger" role="alert">
+                <i class="fas fa-exclamation mr-2"></i> It seems that you didn't fill everything correctly 
+              </div>
         </div>
     </form>
     <br>
 
-    <!-- [ 'properity name in the child component' ] = " 'properity name in the parent component' "-->
-    <app-invoice [quantity]="quantity"
-                 [full_name]="full_name"
-                 [mobile_number]="mobile_number"
-                 [address1]="building_number"
-                 [address2]="street_name"
-                 [address3]="area"
-                 [city]="city"
-                 [ppp]="ppp"
-                 [order_cost]="OrderCost()"
-                 [delivery_cost]="DeliveryCost()"
-                 [total_cost]="TotalCost()"
-                 [order_on]="order_on"
-                 [delivery_on]="delivery_on"
-                 [orderForm] = "orderForm"
-                 ></app-invoice>
+  
 </div>
-<app-footer></app-footer>

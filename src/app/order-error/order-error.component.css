@@ -1,0 +1,17 @@
+.success{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 485px){
+ .success{
+     width:100%;
+     margin-bottom: 10px;
+ }
+}

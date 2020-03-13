@@ -1,0 +1,36 @@
+.orderButton{
+    background-color:  rgb(187, 0, 0);
+    color:white;
+    font-weight: bold;
+    border-bottom: medium solid rgb(109, 1, 1);
+    &:hover, &:active{
+        background-color: white;
+        color: rgb(187, 0, 0);
+    }
+}
+
+.steps{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+.step{
+    border: thin solid #dfdfdf;
+    border-radius: 10px;
+    padding:20px;
+    width: 218px;
+    max-width: 218px;
+    height: 300px;
+
+    &:hover{
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+}
+
+.imageCard{
+    height: 138px;
+    max-height: 138px;
+}

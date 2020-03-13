@@ -1,0 +1,13 @@
+<label for="city" class="required">City</label>
+<select class="form-control">
+    <option value=null disabled selected>Select your option</option>
+    <option
+    *ngFor="let city of cities"
+    value="city.name"
+    (click)="setCityName(city.name)" 
+    [class.active]="cityName === city.name" 
+    lang="ar"
+    dir="rtl"
+    >{{city.arabic_name}}</option>
+    
+</select>
