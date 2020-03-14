@@ -15,7 +15,7 @@ export class OrderErrorComponent implements OnInit {
   }
 
   findUrl(){
-    if (window.location.href =="http://localhost:4200/order/true"){
+    if (window.location.href =="https://nameless-coast-52919.herokuapp.com/order/true"){
       return true;
     }
 
