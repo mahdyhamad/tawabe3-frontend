@@ -1,4 +1,4 @@
-import { BrowserModule, Title } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -18,10 +18,13 @@ import { CustomValidationComponent } from './custom-validation/custom-validation
 import { OrderDoneComponent } from './order-done/order-done.component';
 import { OrderErrorComponent } from './order-error/order-error.component';
 import { LoadingComponent } from './loading/loading.component';
+import { PostOrderService } from './post-order.service';
+import { OrderDataService } from './order-data.service';
 
 
 @NgModule({
   declarations: [
+    // for components
     AppComponent,
     FormComponent,
     StickerComponent,
@@ -38,13 +41,18 @@ import { LoadingComponent } from './loading/loading.component';
     LoadingComponent,
   ],
   imports: [
+    // for other modules
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [Title],
+  providers: [
+    // for services
+    PostOrderService,
+    OrderDataService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

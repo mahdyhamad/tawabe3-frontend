@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, FormArray, Validators, MinLengthValidator } from '@angular/forms';
 import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {Router} from "@angular/router";
-import { Title } from '@angular/platform-browser'; // dynamic title 
-import { DatePipe } from '@angular/common';
-import { style } from '@angular/animations';
 import { CustomValidationComponent } from '../custom-validation/custom-validation.component';
 
 
@@ -193,8 +190,4 @@ export class FormComponent implements OnInit {
     );
   }
   
-
-
-  
-
 }
